@@ -1,0 +1,21 @@
+#divBody{
+    padding: 1em;
+    width: 70%;
+    height: 100%;
+    margin: 0 auto;
+    font-family: sans-serif ;
+    background-color: coral;
+}
+
+
+button{
+    width: 17%;
+    height: 4em;
+    margin-right: 2em;
+    border: 0;
+    background-color: greenyellow;
+}
+#gamePicker{
+    float: right;
+    margin-right: 0;
+}
