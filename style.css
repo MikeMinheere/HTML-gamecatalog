@@ -1,94 +1,74 @@
 body{
-    background-color: rgb(26, 26, 26);
+    background-color: rgb(34, 34, 34);
 }
 
-#divBody{
+main{
+    display: flex;
     padding: 1.5em;
-    width: 70%;
-    height: 100%;
-    margin: 0 14%;
+    width: 60%;
+    margin: auto;
     font-family: sans-serif ;
     background-color: rgb(54, 54, 54);
-    position: absolute;
+    flex-direction: column;
+    row-gap: 1em;
 }
 
 header{
+    display: flex;
+    justify-content: space-between;
+}
+
+#info{
+    display: flex;
+    column-gap: 1em;
+}
+
+#beschrijving, #rating, #screenshot, #systemReq, footer, header{
     background-color: rgb(107, 107, 107);
-    padding: 20px;
+    padding: 1em;
+}
+
+#beschrijving{
+    flex: 3;
+}
+
+#rating{
+    flex: 2;
+}
+
+#tags{
+    display: flex;
+    column-gap: 1em;
+}
+
+.tag{
+    float: left;
+    margin: 3.4rem 0 0;
+    background-color: rgb(155, 155, 155);
+    width: fit-content;
+    padding: 0.5rem;
+    color: rgb(230, 230, 230);
 }
 
 button{
-    width: 17%;
-    height: 4em;
+    width: 14em;
+    height: 5em;
     margin-right: 2em;
     border: 0;
     background-color: rgb(65, 65, 65);
     color: rgb(155, 155, 155);
 }
 
-#gamePicker{
-    float: right;
-    margin-right: 0;
-}
-
-#gameInfo{
-    margin-top: 10px;
-    position: relative; 
-}
-
-#beschrijving{
-    width: 70%;
-    height: 17em;
-    position: absolute;
-    left: 0;
-    top: 0;
-    background-color: rgb(107, 107, 107);
-}
-
-#rating{
-    width: 29%;
-    position: absolute;
-    right: 0;
-    top: 0;
-    height: 17em;
-    background-color: rgb(107, 107, 107);
-}
-
-h1{
-    margin-left: 1.2rem;
-    height: 23px;
-}
-
-#descriptionText, #ratingTxt{
-    margin-left: 1.2rem;
-}
-
-#tag{
-    float: left;
-    margin: 3.4rem 0 0 1rem;
-    background-color: rgb(163, 163, 163);
-    width: fit-content;
-    padding: 0.5rem;
-    color: rgb(240, 240, 240);
-}
-
 #screenshot{
-    width: fit-content;
-    height: fit-content;
-    background-color: rgb(107, 107, 107);
-    position: absolute;
-    top: 17.7em;
-    padding: 1em;
-}
-img{
-    margin: 0 1em;
-    height: 16em;
-    width: auto;
+    display: flex;
+    justify-content: space-between;
 }
 
-#systemReq{
-    width: 100% ;
-    position: absolute;
-    top: 36.7em;
-    background-color: rgb(107, 107, 107);
+img{
+    width: 24%;
+}
+
+h2{
+    height: 23px    ;
+    margin-top: 0;
 }

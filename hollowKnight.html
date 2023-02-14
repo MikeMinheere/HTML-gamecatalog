@@ -1,40 +1,61 @@
 <!DOCTYPE html>
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <title>Gamecatalog</title>
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <div id="divBody">
-           <header>
-                <button>Hollow Knight</button>
-                <button>GTFO</button>
-                <button>Doom Eternal</button>
+        <main>
+            <header>
+                <div class="buttons">
+                    <button onclick="window.location.replace('HollowKnight.html')">Hollow Knight</button>
+                    <button onclick="window.location.replace('GTFO.html')">GTFO</button>
+                    <button onclick="window.location.replace('Doom.html')">Doom Eternal</button>
+                </div>
                 <button id="gamePicker">Game picker</button>
-           </header>
-           <div id="gameInfo">
-              <div id="beschrijving">
-                <h1>Hollow Knight</h1>
-                <p id="descriptionText">Beneath the fading town of Dirtmouth sleeps an ancient, ruined kingdom. Many are drawn below the surface, searching for riches, or glory, or answers to old secrets.</p>
-                <p id="descriptionText">Hollow Knight is a classically styled 2D action adventure across a vast interconnected world. Explore twisting caverns, ancient cities and deadly wastes; battle tainted creatures and befriend bizarre bugs; and solve ancient mysteries at the kingdom's heart.</p>
-                <p id="tag">Metroidvania</p>
-                <p id="tag">Souls-Like</p>
-                <p id="tag">Single player</p>
-                <p id="tag">Platformer</p>
-            </div>
-            <div id="rating">
-                <p id="ratingTxt"><strong>Rating:</strong> Overwhelmingly positive</p>
-                <p id="ratingTxt"><strong>Release Date:</strong> 24 feb 2017</p>
-                <p id="ratingTxt"><strong>Publisher:</strong> Team Cherry</p>
-                <p id="ratingTxt"><strong>Developer:</strong> Team Cherry</p>
-            </div> 
+            </header>
+            <section id="info">
+                <div id="beschrijving"> 	
+                    <h2>Hollow Knight</h2>
+                    <p>Beneath the fading town of Dirtmouth sleeps an ancient, ruined kingdom. Many are drawn below the surface, searching for riches, or glory, or answers to old secrets.</p>
+                    <p>Hollow Knight is a classically styled 2D action adventure across a vast interconnected world. Explore twisting caverns, ancient cities and deadly wastes; battle tainted creatures and befriend bizarre bugs; and solve ancient mysteries at the kingdom's heart.</p>
+                    <div id="tags">
+                        <p class="tag"><strong>Metroidvania</strong></p>
+                        <p class="tag"><strong>Souls-Like</strong></p>
+                        <p class="tag"><strong>Single player</strong></p>
+                        <p class="tag"><strong>Platformer</strong></p>
+                    </div>
+                </div>
+                <div id="rating">
+                    <h2>Rating</h2>
+                    <p><strong>Rating:</strong> Overwhelmingly positive</p>
+                    <p><strong>Release Date:</strong> 24 feb 2017</p>
+                    <p><strong>Publisher:</strong> Team Cherry</p>
+                    <p><strong>Developer:</strong> Team Cherry</p>
+                </div> 
+            </section>                   
             <div id="screenshot">
-                <img src="HollowKnight screenshots/MenuScreen.jpg" alt="MenuScreen">
-                <img src="HollowKnight screenshots/TheHivew.jpg" alt="theHive">
+                <img src="HollowKnight_screenshots/colloseum.jpg" alt="colloseum">
+                <img src="HollowKnight_screenshots/godsAndNightmares.jpg" alt="godsAndNightmares">
+                <img src="HollowKnight_screenshots/greenpath.jpg" alt="greenpath">
+                <img src="HollowKnight_screenshots/relicSeeker.jpg" alt="relicSeeker">
             </div>
             <div id="systemReq">
-                <h1>System requirements</h1>
+                <h2>System requirements</h2>
+                <p><strong>OS:</strong> Windows 7 (64bit)</p>
+                <p><strong>Processor:</strong> Intel Core 2 Duo E5200</p>
+                <p><strong>Memory:</strong> 4 GB RAM</p>
+                <p><strong>Graphics card:</strong> GeForce 9800GTX+ (1GB)</p>
+                <p><strong>DirectX:</strong> version 10</p>
+                <p><strong>Storage space:</strong> 9GB available space</p>
             </div>
-        </div>
+            <footer>
+                <h2>Reviews</h2>
+                <p><strong>y0shi:</strong> Silksong is going to be announced this year for sure. Source: trust me bro</p>
+                <p><strong>haine:</strong>More than 2d dark souls. Outstanding game design: art, soundtrack, world, bosses and builds. It has high skill ceiling and offers hard challenges</p>
+                <p><strong>gamerGamer30000:</strong> Very fun game with an engaging world to interact with, and lots of secrets to find.</p>
+            </footer>
+        </main>
     </body>
 </html>
