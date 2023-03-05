@@ -17,7 +17,11 @@
     background-size: cover;
 }
 
-main{
+#body{
+    background-color: black;
+}
+
+main, .games{
     display: flex;
     padding: 1.5em;
     width: 60%;
@@ -87,4 +91,10 @@ img{
 h2{
     height: 23px    ;
     margin-top: 0;
+}
+
+.games{
+    background-color: grey;
+    margin: auto;
+    padding: 1em;
 }
