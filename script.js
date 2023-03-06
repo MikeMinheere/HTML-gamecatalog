@@ -198,10 +198,15 @@ for(var i = 0; i < gameList.length; i++){
     var game = document.createElement('div');
     game.setAttribute('id', `game${i}`);
     game.setAttribute('class', 'games');
-    body.appendChild(game);
-
+    
     var gameTitle = document.createElement('p');
     var gamePrice = document.createElement('p');
+    gameTitle.setAttribute('class', 'gameP');
+    gamePrice.setAttribute('class', 'gameP');
     gameTitle.innerHTML = `${gameList[i]['title']}`;
+    gamePrice.innerHTML = `$${gameList[i]['price']}`
     game.appendChild(gameTitle);
+    game.appendChild(gamePrice);
+    
+    body.appendChild(game);
 }

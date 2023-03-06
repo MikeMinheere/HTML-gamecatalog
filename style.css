@@ -94,7 +94,13 @@ h2{
 }
 
 .games{
+    display: flex;
     background-color: grey;
     margin: auto;
+    margin-top: 1em;
     padding: 1em;
+}
+
+.gameP{
+    width: 50%;
 }
