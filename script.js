@@ -15,7 +15,7 @@ var gameList = [
         "title": "Goose Goose Duck",
         "price": 4.99,
         "genre": "Action",
-        "rating": 2
+        "rating": 5
     },
     {
         "title": "Apex Legends",
@@ -27,7 +27,7 @@ var gameList = [
         "title": "PUBG: BATTLEGROUNDS",
         "price": 29.99,
         "genre": "FPS",
-        "rating": 5
+        "rating": 3
     },
     {
         "title": "Lost Ark",
@@ -57,7 +57,7 @@ var gameList = [
         "title": "Rust",
         "price": 39.99,
         "genre": "Action",
-        "rating": 5
+        "rating": 3
     },
     {
         "title": "Unturned",
@@ -135,13 +135,13 @@ var gameList = [
         "title": "Terraria",
         "price": 9.99,
         "genre": "Sandbox",
-        "rating": 2
+        "rating": 4
     },
     {
         "title": "Stardew Valley",
         "price": 14.99,
         "genre": "Sandbox",
-        "rating": 1
+        "rating": 4
     },
     {
         "title": "Left 4 Dead 2",
@@ -192,21 +192,41 @@ var gameList = [
         "rating": 3
     }
 ]
-const body = document.getElementById("body");
+const gamesList = document.getElementById("gamesList");
 var divlist = [];
 for(var i = 0; i < gameList.length; i++){
     var game = document.createElement('div');
+    var gameTop = document.createElement('div');
+    var gameBottom = document.createElement('div');
+
+    gameTop.setAttribute('class', 'gameContainer');
+    gameBottom.setAttribute('class', 'gameContainer');
+
     game.setAttribute('id', `game${i}`);
     game.setAttribute('class', 'games');
     
     var gameTitle = document.createElement('p');
     var gamePrice = document.createElement('p');
+    var gameGenre = document.createElement('p');
+    var gameRating = document.createElement('p');
+
     gameTitle.setAttribute('class', 'gameP');
     gamePrice.setAttribute('class', 'gameP');
+    gameGenre.setAttribute('class', 'gameP');
+    gameRating.setAttribute('class', 'gameP');
+
     gameTitle.innerHTML = `${gameList[i]['title']}`;
-    gamePrice.innerHTML = `$${gameList[i]['price']}`
-    game.appendChild(gameTitle);
-    game.appendChild(gamePrice);
+    gamePrice.innerHTML = `$${gameList[i]['price']}`;
+    gameGenre.innerHTML = `genre: ${gameList[i]['genre']}`;
+    gameRating.innerHTML = `rating: ${gameList[i]['rating']}/5`;
+
+    gameTop.appendChild(gameTitle);
+    gameTop.appendChild(gamePrice);
+    gameBottom.appendChild(gameGenre);
+    gameBottom.appendChild(gameRating);
+
+    game.appendChild(gameTop);
+    game.appendChild(gameBottom);
     
-    body.appendChild(game);
+    gamesList.appendChild(game);
 }

@@ -17,11 +17,7 @@
     background-size: cover;
 }
 
-#body{
-    background-color: black;
-}
-
-main, .games{
+main, #body{
     display: flex;
     padding: 1.5em;
     width: 60%;
@@ -31,6 +27,10 @@ main, .games{
     flex-direction: column;
     row-gap: 1em;
     color: rgb(54, 54, 54);
+}
+
+#body{
+    color: white;
 }
 
 header{
@@ -93,8 +93,14 @@ h2{
     margin-top: 0;
 }
 
+#gamePicker{
+    display: flex;
+    flex-direction: column;
+}
+
 .games{
     display: flex;
+    flex-direction: column;
     background-color: grey;
     margin: auto;
     margin-top: 1em;
@@ -102,5 +108,10 @@ h2{
 }
 
 .gameP{
-    width: 50%;
+    width: fit-content;
+}
+
+.gameContainer{
+    display: flex;
+    justify-content: space-between;
 }
