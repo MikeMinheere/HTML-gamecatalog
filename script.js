@@ -192,41 +192,59 @@ var gameList = [
         "rating": 3
     }
 ]
-const gamesList = document.getElementById("gamesList");
-var divlist = [];
-for(var i = 0; i < gameList.length; i++){
-    var game = document.createElement('div');
-    var gameTop = document.createElement('div');
-    var gameBottom = document.createElement('div');
 
-    gameTop.setAttribute('class', 'gameContainer');
-    gameBottom.setAttribute('class', 'gameContainer');
-
-    game.setAttribute('id', `game${i}`);
-    game.setAttribute('class', 'games');
+function createList(){
+    const gamesList = document.getElementById("gamesList");
+    var divlist = [];
+    for(var i = 0; i < gameList.length; i++){
+        var gameListContainer = document.createElement('div');
+        var addButton = document.createElement('button');
+        var game = document.createElement('div');
+        var gameTop = document.createElement('div');
+        var gameBottom = document.createElement('div');
     
-    var gameTitle = document.createElement('p');
-    var gamePrice = document.createElement('p');
-    var gameGenre = document.createElement('p');
-    var gameRating = document.createElement('p');
-
-    gameTitle.setAttribute('class', 'gameP');
-    gamePrice.setAttribute('class', 'gameP');
-    gameGenre.setAttribute('class', 'gameP');
-    gameRating.setAttribute('class', 'gameP');
-
-    gameTitle.innerHTML = `${gameList[i]['title']}`;
-    gamePrice.innerHTML = `$${gameList[i]['price']}`;
-    gameGenre.innerHTML = `genre: ${gameList[i]['genre']}`;
-    gameRating.innerHTML = `rating: ${gameList[i]['rating']}/5`;
-
-    gameTop.appendChild(gameTitle);
-    gameTop.appendChild(gamePrice);
-    gameBottom.appendChild(gameGenre);
-    gameBottom.appendChild(gameRating);
-
-    game.appendChild(gameTop);
-    game.appendChild(gameBottom);
+        gameTop.setAttribute('class', 'gameContainer');
+        gameBottom.setAttribute('class', 'gameContainer');
     
-    gamesList.appendChild(game);
+        addButton.setAttribute('class', 'addButton')
+        game.setAttribute('class', 'games');
+        gameListContainer.setAttribute('class', `gameListContainer`);
+        
+        var gameTitle = document.createElement('p');
+        var gamePrice = document.createElement('p');
+        var gameGenre = document.createElement('p');
+        var gameRating = document.createElement('p');
+    
+        gameTitle.setAttribute('class', 'gameP');
+        gamePrice.setAttribute('class', 'gameP');
+        gameGenre.setAttribute('class', 'gameP');
+        gameRating.setAttribute('class', 'gameP');
+    
+        gameTitle.innerHTML = `${gameList[i]['title']}`;
+        gamePrice.innerHTML = `$${gameList[i]['price']}`;
+        gameGenre.innerHTML = `genre: ${gameList[i]['genre']}`;
+        gameRating.innerHTML = `rating: ${gameList[i]['rating']}/5`;
+        addButton.innerHTML = 'Add to cart';
+    
+        gameTop.appendChild(gameTitle);
+        gameTop.appendChild(gamePrice);
+        gameBottom.appendChild(gameGenre);
+        gameBottom.appendChild(gameRating);
+    
+        game.appendChild(gameTop);
+        game.appendChild(gameBottom);
+        
+        gameListContainer.appendChild(addButton);
+        gameListContainer.appendChild(game);
+    
+        gamesList.appendChild(gameListContainer);
+    }
 }
+
+createList();
+
+var bereken = document.getElementById('bereken');
+bereken.addEventListener('click', function(){
+    const gamePicker = document.getElementById('gamePicker')
+    gamePicker.remove()
+})
