@@ -195,13 +195,16 @@ var gameList = [
 
 function createList(){
     const gamesList = document.getElementById("gamesList");
-    var divlist = [];
     for(var i = 0; i < gameList.length; i++){
         var gameListContainer = document.createElement('div');
         var addButton = document.createElement('button');
         var game = document.createElement('div');
         var gameTop = document.createElement('div');
         var gameBottom = document.createElement('div');
+        var gameTitle = document.createElement('p');
+        var gamePrice = document.createElement('p');
+        var gameGenre = document.createElement('p');
+        var gameRating = document.createElement('p');
     
         gameTop.setAttribute('class', 'gameContainer');
         gameBottom.setAttribute('class', 'gameContainer');
@@ -209,16 +212,15 @@ function createList(){
         addButton.setAttribute('class', 'addButton')
         game.setAttribute('class', 'games');
         gameListContainer.setAttribute('class', `gameListContainer`);
-        
-        var gameTitle = document.createElement('p');
-        var gamePrice = document.createElement('p');
-        var gameGenre = document.createElement('p');
-        var gameRating = document.createElement('p');
-    
+           
         gameTitle.setAttribute('class', 'gameP');
+        gameTitle.setAttribute('id', `gameTitle${i+1}`);
         gamePrice.setAttribute('class', 'gameP');
+        gamePrice.setAttribute('id', `gamePrice${i+1}`);
         gameGenre.setAttribute('class', 'gameP');
+        gameGenre.setAttribute('id', `gameGenre${i+1}`);
         gameRating.setAttribute('class', 'gameP');
+        gameRating.setAttribute('id', `gameRating${i+1}`);
     
         gameTitle.innerHTML = `${gameList[i]['title']}`;
         gamePrice.innerHTML = `$${gameList[i]['price']}`;
@@ -241,10 +243,20 @@ function createList(){
     }
 }
 
+function filter(){
+    var filterDiv = document.getElementById('filterDiv');
+    filterDiv.style.display = 'none';
+    var filterButton = document.getElementById('filterButton');
+    filterButton.addEventListener('click', function(){
+        filterDiv.style.display = 'flex';
+    }) 
+}	
+
 createList();
+filter();
 
 var bereken = document.getElementById('bereken');
 bereken.addEventListener('click', function(){
-    const gamePicker = document.getElementById('gamePicker')
-    gamePicker.remove()
+    const gamePicker = document.getElementById('gamePicker');
+    gamePicker.style.display = 'none';
 })

@@ -6,10 +6,41 @@
     </head>
     <body id="body">
         <div id="gamePicker">
-            <h1>Overzicht</h1>
-            <div id="topButtons">
-                <button>Filter</button>
-                <button>Ok</button>
+            <div id="top">
+                <h1>Overzicht</h1>
+                <button id="filterButton">Filter</button>
+                <div id="filterDiv">
+                    <div>
+                        <p class="gameP">Genre:</p>
+                        <select>
+                            <option value="All">Kies Genre</option>
+                            <option value="FPS">FPS</option>
+                            <option value="MOBA">MOBA</option>
+                            <option value="Action">Action</option>
+                            <option value="RPG">RPG</option>
+                            <option value="Simulation">Simulation</option>
+                            <option value="Looter-Shooter">Looter-Shooter</option>
+                            <option value="Sport">Sport</option>
+                            <option value="Sandbox">Sandbox</option>
+                        </select>
+                    </div>
+                    <div>
+                        <p class="gameP">Rating:</p>
+                        <select>
+                            <option value="ALL">Kies maximale rating</option>
+                            <option value="1">1 ster</option>
+                            <option value="2">2 sterren</option>
+                            <option value="3">3 sterren</option>
+                            <option value="4">4 sterren</option>
+                            <option value="5">5 sterren</option>
+                        </select>
+                    </div>
+                    <div>
+                        <p class="gameP">kies maximale prijs:</p>
+                        <input type="number" id="prijsInput" min="0" max="60">
+                    </div>
+                    <button id="submit">Filter</button>
+                </div>
             </div>
             <div id="gamesList">
 
