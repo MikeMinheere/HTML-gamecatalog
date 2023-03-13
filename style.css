@@ -93,7 +93,7 @@ h2{
     margin-top: 0;
 }
 
-#gamePicker{
+#gamePicker, #basket{
     display: flex;
     flex-direction: column;
 }
@@ -107,7 +107,7 @@ h2{
     max-width: 70%;
 }
 
-.addButton{
+.addRemoveButton{
     flex-grow: 1;
     height: inherit;
 }
@@ -140,4 +140,9 @@ h2{
     padding: 1em;
     margin-top: 1em;
     justify-content: space-between;
+}
+
+.basketDiv{
+    display: flex;
+    margin-top: 1em;
 }

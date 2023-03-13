@@ -238,7 +238,8 @@ const basket = document.getElementById("basket");
 const gamePicker = document.getElementById('gamePicker');
 const gamesList = document.getElementById("gamesList");
 
-basket.style.display = 'none'
+var addedGames = [];
+basket.style.display = 'none';
 
 for(var i = 0; i < gameList.length; i++){
     var gameListContainer = document.createElement('div');
@@ -251,17 +252,20 @@ for(var i = 0; i < gameList.length; i++){
     var gameGenre = document.createElement('p');
     var gameRating = document.createElement('p');
 
-    addButton.addEventListener('click', function(){
-        alert('Toegevoegd aan winkelmand');
-    })
+    addButton.setAttribute('class', 'addRemoveButton');
+    addButton.setAttribute('id', `${i}`);
 
+    addButton.onclick =  function(){
+        addToCart(this.id)
+    };
+    
     gameTop.setAttribute('class', 'gameContainer');
     gameBottom.setAttribute('class', 'gameContainer');
 
-    addButton.setAttribute('class', 'addButton')
     game.setAttribute('class', 'games');
     gameListContainer.setAttribute('class', `gameListContainer`);
-    gameListContainer.setAttribute('id', `${i}`)
+    gameListContainer.setAttribute('id', `${i}`);
+    game.setAttribute('id', `Game${i}`);
     
     gameTitle.setAttribute('class', 'gameP');
     gameTitle.setAttribute('id', `gameTitle${i+1}`);
@@ -333,11 +337,43 @@ function filter(){
     }
 }
 
+function addToCart(clickedID){
+    addedGames.push(gameList[clickedID].title);
+    alert('Toegevoegd aan winkelmand');
+    console.log(addedGames);
+}
+
+function removeFromCart(clickedID){
+    basketDiv.remove();
+    alert('verwijdert uit winkelmand');
+    console.log(addedGames);
+}
+
 submit.addEventListener('click', filter);
 
 var bereken = document.getElementById('bereken');
 bereken.addEventListener('click', function(){
     gamePicker.style.display = 'none';
     basket.style.display = 'flex';
+    for(i = 0; i < gameList.length; i++){
+        for(x = 0; x < addedGames.length; x++){
+            if(gameList[i].title == addedGames[x]){
+                var removeButton = document.createElement('button');
+                var basketDiv = document.createElement('div');
+                
+                basketDiv.setAttribute('class', 'basketDiv')
+                removeButton.setAttribute('class', 'addRemoveButton')
+                removeButton.setAttribute('id', `${i}`);
+                removeButton.innerHTML = "Remove from cart";
 
-})
+                basketDiv.appendChild(removeButton);
+                basketDiv.appendChild(document.getElementById(`Game${i}`));
+                basket.appendChild(basketDiv);
+            }
+        }
+    }
+})  
+
+removeButton.onclick = function(){
+    removeFromCart(this.id);
+}
