@@ -224,6 +224,7 @@ var gameList = [
         "filter": 0
     }
 ]
+var totalAmount = [];
 var submit = document.getElementById('submit');
 var filterDiv = document.getElementById('filterDiv');
 var filterButton = document.getElementById('filterButton');
@@ -264,7 +265,7 @@ for(var i = 0; i < gameList.length; i++){
 
     game.setAttribute('class', 'games');
     gameListContainer.setAttribute('class', `gameListContainer`);
-    gameListContainer.setAttribute('id', `${i}`);
+    gameListContainer.setAttribute('id', `gameListContainer${i}`);
     game.setAttribute('id', `Game${i}`);
     
     gameTitle.setAttribute('class', 'gameP');
@@ -343,30 +344,29 @@ function addToCart(clickedID){
     console.log(addedGames);
 }
 
-function removeFromCart(clickedID){
-    addedGames.slice(gameList[clickedID].title);
-    alert('Toegevoegd aan winkelmand');
-    console.log(addedGames);
-}
+submit.addEventListener('click', filter);
 
-function cart(){
-    var totalAmount = 0;
+var bereken = document.getElementById('bereken');
+bereken.addEventListener('click', function(){
     gamePicker.style.display = 'none';
     basket.style.display = 'flex';
     for(i = 0; i < gameList.length; i++){
         for(x = 0; x < addedGames.length; x++){
             if(gameList[i].title == addedGames[x]){
-                totalAmount += gameList[i].price;
+                totalAmount.push(gameList[i].price);         
                 var removeButton = document.createElement('button');
                 var basketDiv = document.createElement('div');
+                basketDiv.setAttribute('id', `basket${i}`);
+                basketDiv.setAttribute('class', 'basketDiv');
+                removeButton.setAttribute('class', 'addRemoveButton');
                 
-                basketDiv.setAttribute('class', 'basketDiv')
-                removeButton.setAttribute('class', 'addRemoveButton')
+                removeButton.setAttribute('id', `remove${i}`);
                 removeButton.addEventListener('click', function(){
-                    basketDiv.style.display = 'none';
-                    cart;
+                    console.log();
+                    const remove = document.getElementById(`basket${this.id}`);
+                    remove.remove();
                 })
-                removeButton.setAttribute('id', `${i}`);
+                
                 removeButton.innerHTML = "Remove from cart";
                 
                 basketDiv.appendChild(removeButton);
@@ -380,14 +380,9 @@ function cart(){
     var totalPrice = document.createElement('div');
     totalPrice.setAttribute('id', 'totalPrice');
     text.innerHTML = 'Totaalprijs:';
-    money.innerHTML = `$${totalAmount}`;
-
+    money.innerHTML = `$${totalAmount.reduce((a, b) => a + b, 0)}`;
+    
     totalPrice.appendChild(text);
     totalPrice.appendChild(money);
     basket.appendChild(totalPrice);
-}
-
-submit.addEventListener('click', filter);
-
-var bereken = document.getElementById('bereken');
-bereken.addEventListener('click', cart)
+})
