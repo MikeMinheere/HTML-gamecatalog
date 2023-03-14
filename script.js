@@ -344,36 +344,50 @@ function addToCart(clickedID){
 }
 
 function removeFromCart(clickedID){
-    basketDiv.remove();
-    alert('verwijdert uit winkelmand');
+    addedGames.slice(gameList[clickedID].title);
+    alert('Toegevoegd aan winkelmand');
     console.log(addedGames);
 }
 
-submit.addEventListener('click', filter);
-
-var bereken = document.getElementById('bereken');
-bereken.addEventListener('click', function(){
+function cart(){
+    var totalAmount = 0;
     gamePicker.style.display = 'none';
     basket.style.display = 'flex';
     for(i = 0; i < gameList.length; i++){
         for(x = 0; x < addedGames.length; x++){
             if(gameList[i].title == addedGames[x]){
+                totalAmount += gameList[i].price;
                 var removeButton = document.createElement('button');
                 var basketDiv = document.createElement('div');
                 
                 basketDiv.setAttribute('class', 'basketDiv')
                 removeButton.setAttribute('class', 'addRemoveButton')
+                removeButton.addEventListener('click', function(){
+                    basketDiv.style.display = 'none';
+                    cart;
+                })
                 removeButton.setAttribute('id', `${i}`);
                 removeButton.innerHTML = "Remove from cart";
-
+                
                 basketDiv.appendChild(removeButton);
                 basketDiv.appendChild(document.getElementById(`Game${i}`));
                 basket.appendChild(basketDiv);
             }
         }
     }
-})  
+    var money = document.createElement('p');
+    var text = document.createElement('p');
+    var totalPrice = document.createElement('div');
+    totalPrice.setAttribute('id', 'totalPrice');
+    text.innerHTML = 'Totaalprijs:';
+    money.innerHTML = `$${totalAmount}`;
 
-removeButton.onclick = function(){
-    removeFromCart(this.id);
+    totalPrice.appendChild(text);
+    totalPrice.appendChild(money);
+    basket.appendChild(totalPrice);
 }
+
+submit.addEventListener('click', filter);
+
+var bereken = document.getElementById('bereken');
+bereken.addEventListener('click', cart)
