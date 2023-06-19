@@ -155,3 +155,7 @@ h2{
     color: black;
     background-color: grey;
 }
+
+#bold{
+    font-weight: bold;
+}
